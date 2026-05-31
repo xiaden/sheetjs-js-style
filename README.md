@@ -28,6 +28,21 @@ See:
 - `SECURITY.md` for vulnerability reporting and patch intake policy
 - `UPSTREAM_NOTES.md` for upstream sync decisions and backport history
 
+## Branching model
+
+- `main` is the stable default branch.
+- Feature work should use short-lived topic branches (for example `feat/*` and
+	`fix/*`) and merge back into `main`.
+- Long-running divergence branches are discouraged; this repository favors
+	small, reviewable changes merged frequently.
+
+## Release model
+
+- Releases are cut from `main` and marked with annotated Git tags.
+- Security or upstream backports should reference decisions in
+	`UPSTREAM_NOTES.md`.
+- User-visible behavior changes should be noted in `CHANGELOG.md`.
+
 ## Development
 
 Install dependencies:
