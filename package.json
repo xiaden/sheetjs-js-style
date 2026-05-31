@@ -1,5 +1,5 @@
 {
-	"name": "xlsx",
+	"name": "@xiaden/sheetjs-js-style",
 	"version": "0.18.12",
 	"author": "sheetjs",
 	"description": "SheetJS Spreadsheet data parser and writer",
@@ -79,6 +79,9 @@
 		"fs": false
 	},
 	"sideEffects": false,
+	"publishConfig": {
+		"access": "public"
+	},
 	"dependencies": {
 	},
 	"devDependencies": {

@@ -43,6 +43,16 @@ See:
 	`UPSTREAM_NOTES.md`.
 - User-visible behavior changes should be noted in `CHANGELOG.md`.
 
+## CI, Releases, and Package Publishing
+
+- CI runs on pushes and pull requests to `main` via `.github/workflows/ci.yml`.
+- GitHub Releases are created automatically when pushing a tag matching `v*`
+	(for example `v0.18.13`) via `.github/workflows/release.yml`.
+- npm publishing is manual via GitHub Actions (`Publish Package` workflow) and
+	requires a repository secret named `NPM_TOKEN`.
+
+For full release steps and publish notes, see `RELEASING.md`.
+
 ## Development
 
 Install dependencies:
