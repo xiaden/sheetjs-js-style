@@ -103,7 +103,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git://github.com/SheetJS/sheetjs.git"
+		"url": "git://github.com/xiaden/sheetjs-js-style.git"
 	},
 	"scripts": {
 		"ship": "node scripts/ship.mjs",
@@ -131,9 +131,9 @@
 			"holes"
 		]
 	},
-	"homepage": "https://sheetjs.com/",
+	"homepage": "https://github.com/xiaden/sheetjs-js-style",
 	"bugs": {
-		"url": "https://github.com/SheetJS/sheetjs/issues"
+		"url": "https://github.com/xiaden/sheetjs-js-style/issues"
 	},
 	"license": "Apache-2.0",
 	"engines": {

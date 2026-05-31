@@ -1,47 +1,54 @@
-> [!IMPORTANT]
-> ### Thank you Clippy!
-> 
-> ### But our Sheet is in another Workbook!
->
-> The new source repository URL is <https://git.sheetjs.com/sheetjs/sheetjs>.
-> **SheetJS CE remains _truly open source_ under the Apache 2.0 License.**
->
-> Issues should be raised at <https://git.sheetjs.com/sheetjs/sheetjs/issues>.
-> Users can register directly or sign in with a valid GitHub account. Issues can
-> also be raised at <https://sheetjs.com/chat>.
->
-> Documentation is available at <https://docs.sheetjs.com>.
->
-> Scripts and NodeJS modules are available at <https://cdn.sheetjs.com>.
->
-> The [`master` branch](https://github.com/sheetjs/sheetjs/tree/master) branch
-> of the `SheetJS/sheetjs` repository on GitHub includes all commits through
-> `515d1c6f2e1d3ca422ee9198b177cfd926434936`.
+# sheetjs-js-style
 
-The SheetJS Community Edition offers battle-tested open-source solutions for
-extracting useful data from almost any complex spreadsheet and generating new
-spreadsheets that will work with legacy and modern software alike.
+Standalone spreadsheet toolkit with style support.
 
-[SheetJS Pro](https://sheetjs.com/pro) offers solutions beyond data processing:
-Edit complex templates with ease; let out your inner Picasso with styling; make
-custom sheets with images/graphs/PivotTables; evaluate formula expressions and
-port calculations to web apps; automate common spreadsheet tasks, and much more!
+## Project lineage
 
-> [!NOTE]
-> ### 💼 We're Hiring!
-> 
-> SheetJS is looking for US-based software developers to expand this project and
-> related software libraries and tools. <https://sheetjs.com/careers> more info.
+This project is a **hybrid modernization** derived from both:
 
-### Resources
+- `SheetJS/sheetjs`
+- `gitbrent/xlsx-js-style`
 
-- [Issue Tracker and Source Code](https://git.sheetjs.com/sheetjs/sheetjs/issues)
+It is **not** a pure fork or drop-in mirror of either upstream. Structure,
+packaging, and implementation details intentionally diverge.
 
-- [API and Usage Documentation](https://docs.sheetjs.com)
+## Scope
 
-- [Downloadable Scripts and Modules](https://cdn.sheetjs.com)
+- Parse spreadsheet formats (XLSX/XLSB/XLS/CSV and more)
+- Generate spreadsheets for modern and legacy consumers
+- Preserve and write style metadata used by this codebase
 
-### License
+## Maintenance model
 
-Please consult the attached LICENSE file for details.  All rights not explicitly
-granted by the Apache 2.0 License are reserved by the Original Author.
+This repository tracks upstream work from both projects as **reference sources**.
+Security fixes and critical regressions are ported selectively and documented.
+
+See:
+
+- `SECURITY.md` for vulnerability reporting and patch intake policy
+- `UPSTREAM_NOTES.md` for upstream sync decisions and backport history
+
+## Development
+
+Install dependencies:
+
+- `npm ci`
+
+Run checks:
+
+- `npm run lint`
+- `npm test`
+
+Build bundles:
+
+- `npm run build`
+
+## Compatibility note
+
+Because this is a hybrid line, behavior may differ from either upstream in edge
+cases. Changes should be validated against this repository's own tests and
+release notes.
+
+## License
+
+Licensed under Apache-2.0. See `LICENSE`.
