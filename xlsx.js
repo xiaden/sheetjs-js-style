@@ -13464,9 +13464,29 @@ function parse_ws_xml_sheetviews(data, wb) {
 }
 function write_ws_xml_sheetviews(ws, opts, idx, wb) {
 	var sview = ({workbookViewId:"0"});
+	var pane = null;
 	// $FlowIgnore
 	if((((wb||{}).Workbook||{}).Views||[])[0]) sview.rightToLeft = wb.Workbook.Views[0].RTL ? "1" : "0";
-	return writextag("sheetViews", writextag("sheetView", null, sview), {});
+	if(ws && ws['!freeze'] != null) {
+		var freeze = ws['!freeze'];
+		if(Array.isArray(freeze)) {
+			if(freeze.length !== 1) throw new Error("Sheet freeze configuration must define exactly one `!freeze` pane per sheet");
+			freeze = freeze[0];
+		}
+		if(!freeze || typeof freeze !== "object" || Array.isArray(freeze)) throw new Error("Sheet freeze configuration `!freeze` must be an object");
+		pane = {};
+		if(freeze.xSplit != null) pane.xSplit = '' + freeze.xSplit;
+		if(freeze.ySplit != null) pane.ySplit = '' + freeze.ySplit;
+		if(freeze.topLeftCell != null) pane.topLeftCell = freeze.topLeftCell;
+		pane.state = freeze.state || "frozen";
+		if(freeze.activePane) pane.activePane = freeze.activePane;
+		else {
+			var xSplit = +freeze.xSplit || 0;
+			var ySplit = +freeze.ySplit || 0;
+			pane.activePane = xSplit > 0 ? (ySplit > 0 ? "bottomRight" : "topRight") : (ySplit > 0 ? "bottomLeft" : "topLeft");
+		}
+	}
+	return writextag("sheetViews", writextag("sheetView", pane ? writextag("pane", null, pane) : null, sview), {});
 }
 
 function write_ws_xml_cell(cell, ref, ws, opts) {
