@@ -1,6 +1,7 @@
 /**
  * xlsx-js-style
  */
+const fs = require("fs");
 const pkg = require("./package.json");
 const gulp = require("gulp"),
 	concat = require("gulp-concat"),
@@ -24,8 +25,9 @@ gulp.task("min", () => {
 });
 
 gulp.task("bundle", () => {
+	const bundleSources = fs.existsSync("./libs") ? ["./libs/*", "./src/xlsx.js"] : ["./src/xlsx.js"];
 	return gulp
-		.src(["./libs/*", "./src/xlsx.js"])
+		.src(bundleSources, { allowEmpty: true })
 		.pipe(concat("xlsx.bundle.js"))
 		.pipe(uglify())
 		.pipe(replace("./dist/cpexcel.js", "./cpexcel.js"))

@@ -1,0 +1,94 @@
+[
+	{
+		"name": "fill-yellow-roundtrip",
+		"sheet": "Smoke",
+		"data": [[
+			{
+				"v": "hello",
+				"t": "s",
+				"s": {
+					"fill": {
+						"fgColor": { "rgb": "FFFF00" }
+					}
+				}
+			},
+			42
+		]],
+		"expect": {
+			"A1": {
+				"v": "hello",
+				"patternType": "solid",
+				"fgColor": "FFFF00"
+			},
+			"B1": {
+				"v": 42
+			}
+		}
+	},
+	{
+		"name": "fill-gray-roundtrip",
+		"sheet": "Smoke",
+		"data": [[
+			{
+				"v": "styled",
+				"t": "s",
+				"s": {
+					"fill": {
+						"fgColor": { "rgb": "E9E9E9" }
+					}
+				}
+			},
+			3
+		]],
+		"expect": {
+			"A1": {
+				"v": "styled",
+				"patternType": "solid",
+				"fgColor": "E9E9E9"
+			},
+			"B1": {
+				"v": 3
+			}
+		}
+	},
+	{
+		"name": "fill-two-cell-roundtrip",
+		"sheet": "Smoke",
+		"data": [[
+			{
+				"v": "yellow",
+				"t": "s",
+				"s": {
+					"fill": {
+						"fgColor": { "rgb": "FFFF00" }
+					}
+				}
+			},
+			{
+				"v": "gray",
+				"t": "s",
+				"s": {
+					"fill": {
+						"fgColor": { "rgb": "E9E9E9" }
+					}
+				}
+			},
+			99
+		]],
+		"expect": {
+			"A1": {
+				"v": "yellow",
+				"patternType": "solid",
+				"fgColor": "FFFF00"
+			},
+			"B1": {
+				"v": "gray",
+				"patternType": "solid",
+				"fgColor": "E9E9E9"
+			},
+			"C1": {
+				"v": 99
+			}
+		}
+	}
+]
